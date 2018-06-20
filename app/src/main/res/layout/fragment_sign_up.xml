@@ -4,7 +4,7 @@
     android:layout_height="400dp"
     android:orientation="vertical"
     android:id="@+id/login_frame"
-    android:background="#00897b"
+    android:background="@drawable/signup_back"
     android:layout_gravity="center"
     tools:context="com.example.charugoel.application.SignUp">
 
@@ -12,6 +12,12 @@
         android:layout_width="300dp"
         android:layout_height="400dp"
         android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/lets_go2"
+            android:layout_gravity="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -68,7 +74,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:backgroundTint="#00897b"
-        android:src="@drawable/checkf" />
+        android:src="@drawable/tick2" />
 
     </LinearLayout>
 

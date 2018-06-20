@@ -65,17 +65,20 @@ public class SignUp extends Fragment {
                 if(login_status){
                     Toast.makeText(getActivity(), "Login Successful...\n Welcome "+First_name,Toast.LENGTH_SHORT).show();
 
-
+                    Username_login.setText("");
+                    Pass_login.setText("");
 
                     FragmentManager fragmentManager = getFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     Profile profile = new Profile();
                     fragmentTransaction.add(R.id.main_act , profile);
+                    fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
 
 
                 }
                 else{
+                    Pass_login.setText("");
                     Toast.makeText(getActivity(), "Login Failed...",Toast.LENGTH_SHORT).show();
                 }
 

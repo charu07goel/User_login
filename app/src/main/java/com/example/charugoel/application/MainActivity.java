@@ -18,7 +18,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     Global uname = Global.getInstance();
-    Button sign_in,sign_up;
+    Button sign_up;
+    TextView sign_in;
     EditText First_name,Last_name, Username, Password, Age;
     String first_name = null,last_name = null, username = null, password = null, age= null;
 
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sign_in = (Button) findViewById(R.id.sign_in);
+        sign_in = (TextView) findViewById(R.id.sign_in);
         First_name = (EditText)findViewById(R.id.first_name);
         Last_name = (EditText)findViewById(R.id.last_name);
         Username = (EditText)findViewById(R.id.username);
@@ -78,9 +79,19 @@ public class MainActivity extends AppCompatActivity {
                             Age.setText(Age.getText());
                         } else if (password.length() < 6 && password.length() != 0) {
                             Toast.makeText(getBaseContext(), "Password Too Short - Minimum Length is 6", Toast.LENGTH_SHORT).show();
-                        } else {
+                        }
+
+                        else if(exists(username)){
+                            Toast.makeText(getBaseContext(), "Username Exists", Toast.LENGTH_SHORT).show();
+                            Username.setText("");
+                            Password.setText("");
+                        }
+                        else {
                             DatabaseOperations DB = new DatabaseOperations(ctx);
                             DB.putInformation(DB, first_name, last_name, username, password, age);
+
+                            DB.insertInfo(DB, username, "50");
+
                             Toast.makeText(getBaseContext(), "Account Created", Toast.LENGTH_SHORT).show();
                             First_name.setText("");
                             Last_name.setText("");
@@ -102,9 +113,28 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 SignUp signup_frag = new SignUp();
                 fragmentTransaction.add(R.id.main_act , signup_frag);
+                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
 
             }
         });
+    }
+
+    private boolean exists(String uname){
+
+        DatabaseOperations dop = new DatabaseOperations(this);
+        Cursor CR = dop.getInformation(dop);
+        CR.moveToFirst();
+        boolean login_status = false;
+        String First_name = "";
+
+        do{
+            if(username.equals(CR.getString(1))){
+                login_status = true;
+            }
+
+        }while(CR.moveToNext());
+
+        return login_status;
     }
 }

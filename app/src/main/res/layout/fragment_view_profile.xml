@@ -4,7 +4,7 @@
     android:id="@+id/view_profile_frame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fdfdfd"
+    android:background="@drawable/signup_back"
     android:orientation="vertical"
     tools:context="com.example.charugoel.application.View_profile">
 
@@ -52,7 +52,8 @@
                     android:id="@+id/pic"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:src="@drawable/profile_pic"/>
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/fab"
@@ -75,7 +76,8 @@
                     android:id="@+id/pic1"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:src="@drawable/profile_pic"/>
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/fab1"
@@ -97,7 +99,8 @@
                     android:id="@+id/pic2"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:src="@drawable/profile_pic"/>
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/fab2"
@@ -130,7 +133,8 @@
                     android:id="@+id/pic3"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:src="@drawable/profile_pic"/>
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/fab3"
@@ -154,7 +158,8 @@
                     android:id="@+id/pic4"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:src="@drawable/profile_pic"/>
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/fab4"

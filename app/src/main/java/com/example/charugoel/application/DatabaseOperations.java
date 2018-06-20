@@ -12,10 +12,10 @@ import android.util.Log;
  */
 
 public class DatabaseOperations extends SQLiteOpenHelper {
-    public static final int database_version = 1;
+    public static final int database_version = 2;
 
     public String CREATE_QUERY = "CREATE TABLE IF NOT EXISTS "+TableData.TableInfo.TABLE_NAME+"("+TableData.TableInfo.First_name+" TEXT,"+TableData.TableInfo.Last_name+" TEXT,"+TableData.TableInfo.Username+" TEXT PRIMARY KEY NOT NULL,"+TableData.TableInfo.Password+" TEXT,"+TableData.TableInfo.Age + " INTEGER);";
-    public String CREATE_WALLET = "CREATE TABLE IF NOT EXISTS "+WalletTable.TableInfo.TABLE_NAME+"("+WalletTable.TableInfo.Username+" TEXT PRIMARY KEY NOT NULL,"+ WalletTable.TableInfo.Wallet+" INTEGER DEFAULT 50);";
+    public String CREATE_WALLET = "CREATE TABLE IF NOT EXISTS "+WalletTable.TableInfo.TABLE_NAME+"("+WalletTable.TableInfo.Username+" TEXT PRIMARY KEY NOT NULL,"+ WalletTable.TableInfo.Wallet+" TEXT);";
 
 
     public DatabaseOperations(Context context) {

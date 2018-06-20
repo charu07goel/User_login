@@ -38,15 +38,15 @@ public class Wallet_Profile extends Fragment {
         Cursor CR = dop.fetch(dop);
         CR.moveToFirst();
         String Amount = "";
+        String Username = uname.get();
         do{
-
-            if(uname.equals(CR.getString(0))){
-                Amount = CR.getColumnName(1);
+            if(Username.equals(CR.getString(0))){
+                Amount = CR.getString(1);
+                break;
             }
 
         }while(CR.moveToNext());
-
-        amt.setText(Amount);
+        amt.setText(amt.getText()+" "+Amount);
 
 
 

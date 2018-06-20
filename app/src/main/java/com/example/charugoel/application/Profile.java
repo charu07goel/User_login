@@ -22,7 +22,7 @@ public class Profile extends Fragment {
 
     Global uname = Global.getInstance();
     TextView name;
-    Button logout;
+    TextView logout;
     ImageView profile, view_profile, wallet;
 
 
@@ -39,14 +39,10 @@ public class Profile extends Fragment {
 
         name = (TextView) view.findViewById(R.id.name);
         profile = (ImageView) view.findViewById(R.id.profile_pic);
-        logout = (Button) view.findViewById(R.id.logout);
+        logout = (TextView) view.findViewById(R.id.logout);
         view_profile = (ImageView) view.findViewById(R.id.View_Profile);
         wallet = (ImageView) view.findViewById(R.id.wallet);
 
-
-        /*String username = String.valueOf(uname);
-        DatabaseOperations DB = new DatabaseOperations(getActivity());
-        DB.insertInfo(DB, username, "50");*/
 
         DatabaseOperations dop = new DatabaseOperations(getActivity());
         Cursor CR = dop.getInformation(dop);
@@ -67,6 +63,7 @@ public class Profile extends Fragment {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Wallet_Profile wal = new Wallet_Profile();
                 fragmentTransaction.add(R.id.profile_frame, wal);
+                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
 
             }
@@ -81,6 +78,7 @@ public class Profile extends Fragment {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 View_profile profile = new View_profile();
                 fragmentTransaction.add(R.id.profile_frame , profile);
+                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
 
             }
@@ -93,7 +91,15 @@ public class Profile extends Fragment {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 View_profile profile = new View_profile();
                 fragmentTransaction.add(R.id.profile_frame ,profile);
+                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getFragmentManager().popBackStackImmediate();
             }
         });
 
