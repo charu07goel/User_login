@@ -1,8 +1,10 @@
 package com.example.charugoel.application;
 
 
+import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -54,7 +56,7 @@ public class Profile extends Fragment {
             if(Username.equals(CR.getString(1)))
                 First_name = CR.getString(0);
         }while (CR.moveToNext());
-        name.setText(First_name);
+        name.setText(First_name.toUpperCase());
 
         wallet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +101,18 @@ public class Profile extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getFragmentManager().popBackStackImmediate();
+
+                new AlertDialog.Builder(getActivity())
+                        .setMessage("Are you sure you want to exit?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                getActivity().getFragmentManager().popBackStackImmediate();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
             }
         });
 

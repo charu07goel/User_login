@@ -64,7 +64,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
     public Cursor getInformation(DatabaseOperations dop){
         SQLiteDatabase SQ = dop.getReadableDatabase();
-        String[] columns = {TableData.TableInfo.First_name, TableData.TableInfo.Username, TableData.TableInfo.Password, TableData.TableInfo.Age};
+        String[] columns = {TableData.TableInfo.First_name, TableData.TableInfo.Username, TableData.TableInfo.Password, TableData.TableInfo.Age, TableData.TableInfo.Last_name};
         Cursor CR = SQ.query(TableData.TableInfo.TABLE_NAME, columns, null, null, null, null, null);
         if(CR!=null)
             CR.moveToFirst();

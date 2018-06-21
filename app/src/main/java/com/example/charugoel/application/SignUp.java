@@ -49,19 +49,29 @@ public class SignUp extends Fragment {
                 password = Pass_login.getText().toString().trim();
                 DatabaseOperations dop = new DatabaseOperations(getActivity());
                 Cursor CR = dop.getInformation(dop);
-                CR.moveToFirst();
                 boolean login_status = false;
                 String First_name = "";
 
-                do{
-                    if(username.equals(CR.getString(1)) && (password.equals(CR.getString(2)))){
-                        login_status = true;
-                        uname.set(username);
-                        First_name = CR.getString(0);
+                if(CR.moveToFirst()) {
 
-                    }
+                    do {
+                        if (username.equals(CR.getString(1)) && (password.equals(CR.getString(2)))) {
+                            login_status = true;
+                            uname.set(username);
+                            First_name = CR.getString(0);
 
-                }while(CR.moveToNext());
+                        }
+
+                    } while (CR.moveToNext());
+                }
+                else if(username.equals("") || password.equals("")){
+                    Toast.makeText(getActivity(), "Fields Incomplete...", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(getActivity(), "No User Exists...Create Account", Toast.LENGTH_SHORT).show();
+                    Username_login.setText("");
+                    Pass_login.setText("");
+                }
                 if(login_status){
                     Toast.makeText(getActivity(), "Login Successful...\n Welcome "+First_name,Toast.LENGTH_SHORT).show();
 

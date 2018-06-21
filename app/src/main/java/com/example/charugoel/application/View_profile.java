@@ -158,7 +158,7 @@ public class View_profile extends Fragment {
             }
 
         }while (CR.moveToNext());
-        name.setText(First_name);
+        name.setText(First_name.toUpperCase());
         age.setText(Age);
 
 

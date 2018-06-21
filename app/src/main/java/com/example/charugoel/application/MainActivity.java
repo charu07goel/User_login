@@ -45,30 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 password = Password.getText().toString().trim();
                 age = Age.getText().toString().trim();
 
-                /*DatabaseOperations dop = new DatabaseOperations(getBaseContext());
-                Cursor CR = dop.getInformation(dop);
-                CR.moveToFirst();
-                boolean login_status = false;
-
-                do{
-                    if(username.equals(CR.getString(1))){
-                        login_status = true;
-                    }
-
-                    else if(CR.getString(1).equals("")){
-                        login_status = false;
-                    }
-
-                }while(CR.moveToNext());
-
-
-                if(login_status ) {
-                    Toast.makeText(getBaseContext(), "Username Already Exists", Toast.LENGTH_SHORT).show();
-                    Username.setText("");
-                    Password.setText("");
-                }
-
-                    else {*/
 
                         if (first_name.equals("") || last_name.equals("") || username.equals("") || password.equals("") || age.equals("")) {
                             Toast.makeText(getBaseContext(), "Fields Incomplete...", Toast.LENGTH_SHORT).show();
@@ -124,16 +100,18 @@ public class MainActivity extends AppCompatActivity {
 
         DatabaseOperations dop = new DatabaseOperations(this);
         Cursor CR = dop.getInformation(dop);
-        CR.moveToFirst();
         boolean login_status = false;
         String First_name = "";
 
-        do{
-            if(username.equals(CR.getString(1))){
+        if(CR.moveToFirst()){
+        do {
+
+            if (username.equals(CR.getString(1))) {
                 login_status = true;
             }
-
         }while(CR.moveToNext());
+
+        }
 
         return login_status;
     }

@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/signup_back"
+    android:id="@+id/userlistDisp"
     tools:context="com.example.charugoel.application.Wallet_Profile">
 
     <LinearLayout
@@ -36,6 +37,7 @@
 
 
             <ImageView
+                android:id="@+id/exchange"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"

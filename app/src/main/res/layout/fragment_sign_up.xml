@@ -4,7 +4,7 @@
     android:layout_height="400dp"
     android:orientation="vertical"
     android:id="@+id/login_frame"
-    android:background="@drawable/signup_back"
+    android:background="@drawable/backf"
     android:layout_gravity="center"
     tools:context="com.example.charugoel.application.SignUp">
 
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:text="Username:"
             android:textSize="20dp"
-            android:textColor="#000"/>
+            android:textColor="#ffffff"/>
 
         <EditText
             android:id="@+id/username_login"
@@ -39,7 +39,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:hint="Username"
-            android:textColor="#000" />
+            android:textColorHint="#ffffff"
+            android:textColor="#ffffff" />
     </LinearLayout>
 
     <LinearLayout
@@ -54,7 +55,7 @@
             android:layout_height="wrap_content"
             android:text="Passworrd:"
             android:textSize="20dp"
-            android:textColor="#000"/>
+            android:textColor="#ffffff"/>
 
         <EditText
             android:id="@+id/pass_login"
@@ -62,8 +63,9 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:layout_marginLeft="20dp"
+            android:textColorHint="#ffffff"
             android:hint="Password"
-            android:textColor="#000" />
+            android:textColor="#ffffff" />
 
     </LinearLayout>
 
