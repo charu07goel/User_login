@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 first_name = First_name.getText().toString().trim();
                 last_name = Last_name.getText().toString().trim();
                 username = Username.getText().toString().trim();
-                password = Password.getText().toString().trim();
+                password = Password.getText().toString();
                 age = Age.getText().toString().trim();
 
 
@@ -91,6 +91,11 @@ public class MainActivity extends AppCompatActivity {
                 fragmentTransaction.add(R.id.main_act , signup_frag);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+                Username.setText("");
+                First_name.setText("");
+                Last_name.setText("");
+                Password.setText("");
+                Age.setText("");
 
             }
         });
@@ -101,7 +106,6 @@ public class MainActivity extends AppCompatActivity {
         DatabaseOperations dop = new DatabaseOperations(this);
         Cursor CR = dop.getInformation(dop);
         boolean login_status = false;
-        String First_name = "";
 
         if(CR.moveToFirst()){
         do {

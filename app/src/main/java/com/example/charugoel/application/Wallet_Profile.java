@@ -3,6 +3,7 @@ package com.example.charugoel.application;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.database.Cursor;
 import android.media.Image;
 import android.os.Bundle;
@@ -70,5 +71,6 @@ public class Wallet_Profile extends Fragment {
 
         return view;
     }
+
 
 }

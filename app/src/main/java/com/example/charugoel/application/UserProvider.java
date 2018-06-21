@@ -1,5 +1,8 @@
 package com.example.charugoel.application;
 
+import android.media.Image;
+import android.widget.ImageView;
+
 /**
  * Created by Charu Goel on 21-06-2018.
  */
@@ -13,6 +16,7 @@ public class UserProvider {
 
         this.username = username;
         this.first_name = first_name;
+
         this.last_name = last_name;
     }
 
@@ -24,10 +28,7 @@ public class UserProvider {
         this.last_name = last_name;
     }
 
-    public String getUsername() {
-
-        return username;
-    }
+    public String getUsername() {return username; }
 
     public void setUsername(String username) {
         this.username = username;

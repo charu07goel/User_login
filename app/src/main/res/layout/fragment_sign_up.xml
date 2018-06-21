@@ -39,6 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:hint="Username"
+            android:inputType="textVisiblePassword|textNoSuggestions"
             android:textColorHint="#ffffff"
             android:textColor="#ffffff" />
     </LinearLayout>

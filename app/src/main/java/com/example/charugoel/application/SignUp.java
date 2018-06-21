@@ -46,7 +46,7 @@ public class SignUp extends Fragment {
             @Override
             public void onClick(View view) {
                 username = Username_login.getText().toString().trim();
-                password = Pass_login.getText().toString().trim();
+                password = Pass_login.getText().toString();
                 DatabaseOperations dop = new DatabaseOperations(getActivity());
                 Cursor CR = dop.getInformation(dop);
                 boolean login_status = false;

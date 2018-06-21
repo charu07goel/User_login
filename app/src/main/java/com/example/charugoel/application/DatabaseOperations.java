@@ -80,4 +80,14 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
         return CR;
     }
+
+    public void update(DatabaseOperations dop,String uname, String old_amt, String new_amt){
+        SQLiteDatabase SQ = dop.getWritableDatabase();
+        String selection = WalletTable.TableInfo.Username+ " LIKE ? AND "+ WalletTable.TableInfo.Wallet + " LIKE ?";
+        String args[] = {uname,old_amt};
+        ContentValues cv = new ContentValues();
+        cv.put(WalletTable.TableInfo.Wallet, new_amt);
+        SQ.update(WalletTable.TableInfo.TABLE_NAME, cv, selection, args);
+
+    }
 }
