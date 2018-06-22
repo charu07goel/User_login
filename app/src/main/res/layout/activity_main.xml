@@ -7,6 +7,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.charugoel.application.MainActivity">
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/button_design"
+        android:fadeScrollbars="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -172,5 +178,7 @@
         android:textColor= "#0d10c2"/>
 
     </LinearLayout>
+
+    </ScrollView>
 
 </FrameLayout>
